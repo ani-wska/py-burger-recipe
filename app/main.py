@@ -35,9 +35,9 @@ class OneOf(Validator):
     def __init__(self, *options) -> None:
         self.options = options
 
-    def validate(self, value: int) -> bool:
+    def validate(self, value: int) -> None:
         if value in self.options:
-            return True
+            pass
         else:
             raise ValueError(f"Expected {value} to be one of {self.options}.")
 
@@ -51,7 +51,7 @@ class BurgerRecipe:
     sauce = OneOf("ketchup", "mayo", "burger")
 
     def __init__(self, buns: int, cheese: int, tomatoes: int,
-                 cutlets: int, eggs: int, sauce: int) -> None:
+                 cutlets: int, eggs: int, sauce: str) -> None:
         self.buns = buns
         self.cheese = cheese
         self.tomatoes = tomatoes
